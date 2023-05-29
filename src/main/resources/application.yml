@@ -4,5 +4,22 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+#워크벤치 연결 확인해보기
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://15.164.228.2:3306/help?characterEncoding=UTF-8&serverTimezone=UTC
+    username: cchacha
+    password: cha8379
+
+# h2 책 예제
+#        connection:
+#          datasource:
+#            url: jdbc:h2:mem:testdb
+#
+#            h2:
+#              console:
+#                enbled: true
+
     #테이블 생성 후에 data.sql 실행
     defer-datasource-initialization: true
+
