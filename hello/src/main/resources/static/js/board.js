@@ -18,6 +18,7 @@ if (deleteButton) {
 const modifyButton = document.getElementById('modify-btn');
 
 if (modifyButton) {
+    //클릭 이벤트 감지시 수정 API 요청
     modifyButton.addEventListener('click', event => {
         let params = new URLSearchParams(location.search);
         let id = params.get('id');
@@ -43,6 +44,7 @@ if (modifyButton) {
 const createButton = document.getElementById('create-btn');
 
 if (createButton) {
+    //생성 API 요청
     createButton.addEventListener('click', event => {
         fetch('/api/boards', {
             method: 'POST',

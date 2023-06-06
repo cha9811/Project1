@@ -39,10 +39,12 @@ public class BoardViewController {
     }
 
     @GetMapping("/new-board")
+    //id 키를 가진 쿼리 파라미터의 값을 id 변수에 매핑
     public String newBoard(@RequestParam(required = false) Long id, Model model){
         if (id == null) {
             //값이 없을경우 (신규 등록이 가능할경우)
             model.addAttribute("Board",new BoardViewResponse());
+            //객체를 board라는 이름으로 추가한다.
         } else{
             //값이 있을경우 (신규 등록이 불가능할경우)
             Board board = boardService.findByID(id);
