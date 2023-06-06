@@ -2,14 +2,14 @@
 const deleteButton = document.getElementById('delete-btn');
 
 if (deleteButton) {
-    deleteButton.addEventListener('click', event => {
-        let id = document.getElementById('article-id').value;
-        fetch(`/api/articles/${id}`, {
+    deleteButton.addEventListener('click',event => {
+        let id = document.getElementById('board-id').value;
+        fetch(`/api/boards/${id}`, {
             method: 'DELETE'
         })
             .then(() => {
                 alert('삭제가 완료되었습니다.');
-                location.replace('/articles');
+                location.replace('/boards');
             });
     });
 }
@@ -22,7 +22,7 @@ if (modifyButton) {
         let params = new URLSearchParams(location.search);
         let id = params.get('id');
 
-        fetch(`/api/articles/${id}`, {
+        fetch(`/api/boards/${id}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
@@ -34,7 +34,7 @@ if (modifyButton) {
         })
             .then(() => {
                 alert('수정이 완료되었습니다.');
-                location.replace(`/articles/${id}`);
+                location.replace(`/boards/${id}`);
             });
     });
 }
@@ -44,7 +44,7 @@ const createButton = document.getElementById('create-btn');
 
 if (createButton) {
     createButton.addEventListener('click', event => {
-        fetch('/api/articles', {
+        fetch('/api/boards', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -56,7 +56,7 @@ if (createButton) {
         })
             .then(() => {
                 alert('등록 완료되었습니다.');
-                location.replace('/articles');
+                location.replace('/boards');
             });
     });
 }

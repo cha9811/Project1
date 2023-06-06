@@ -1,19 +1,26 @@
 spring:
     jpa:
-      database: mysql
+#      database: mysql
+#      show-sql: true
+#      hibernate:
+#        ddl-auto: update
+#      properties:
+#        hibernate:
+#          show_sql: true
+#          format_sql: true
+
       show-sql: true
-      hibernate:
-        ddl-auto: update
       properties:
         hibernate:
-          show_sql: true
           format_sql: true
-
-    #    show-sql: true
-    #    properties:
-    #      hibernate:
-    #        format_sql: true
-
+      #테이블 생성 후에 data.sql 실행
+      defer-datasource-initialization: true
+    datasource:
+      url: jdbc:h2:mem:testdb
+      username: sa
+    h2:
+      console:
+        enabled: true
     # createDatabaseIfNotExist: 데이터베이스가 존재하지 않으면 자동으로 생성
     # useUnicode: 유니코드 사용 여부 설정
     # characterEncoding: 문자열 인코딩 종류 설정
@@ -25,22 +32,16 @@ spring:
 
 
 #    #워크벤치 연결 확인해보기
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://15.164.228.2:3306/spring-homework?serverTimezone=UTC&characterEncoding=UTF-8&serverTimezone=UTC
-    username: cchacha
-    password: cha8379
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://15.164.228.2:3306/spring-homework?serverTimezone=UTC&characterEncoding=UTF-8&serverTimezone=UTC
+#    username: cchacha
+#    password: cha8379
 
 
 
 #    # h2 책 예제
 #            connection:
-#              datasource:
-#                url: jdbc:h2:mem:testdb
-#
-#                h2:
-#                  console:
-#                    enbled: true
 
-    #테이블 생성 후에 data.sql 실행
-    defer-datasource-initialization: true
+
+
 

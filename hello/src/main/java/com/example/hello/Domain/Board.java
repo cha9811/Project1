@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
@@ -40,18 +41,18 @@ public class Board {
 
     @LastModifiedBy
     @Column(name = "updated_at")
-    private  LocalDateTime updateAt;
+    private LocalDateTime updateAt;
     //todo : 로컬타임 말고 서버시간으로 저장하는 방법은??
 
     //글생성
     @Builder
-    public Board(String title, String content){
+    public Board(String title, String content) {
         this.title = title;
         this.contnet = content;
     }
 
     //글 업뎃
-    public void update(String title, String content){
+    public void update(String title, String content) {
         this.title = title;
         this.contnet = content;
 
